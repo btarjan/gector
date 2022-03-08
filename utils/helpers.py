@@ -44,8 +44,9 @@ def get_target_sent_by_edits(source_tokens, edits):
         source_token = target_tokens[target_pos] \
             if len(target_tokens) > target_pos >= 0 else ''
         if label == "":
-            del target_tokens[target_pos]
-            shift_idx -= 1
+            pass
+            # del target_tokens[target_pos]
+            # shift_idx -= 1
         elif start == end:
             word = label.replace("$APPEND_", "")
             target_tokens[target_pos: target_pos] = [word]
