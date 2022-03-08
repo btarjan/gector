@@ -128,13 +128,13 @@ def apply_reverse_transformation(source_token, transform):
             return convert_using_case(source_token, transform)
         # deal with verb
         if transform.startswith("$TRANSFORM_VERB"):
-            return convert_using_verb(source_token, transform)
+            return source_token
         # deal with split
         if transform.startswith("$TRANSFORM_SPLIT"):
-            return convert_using_split(source_token, transform)
+            return source_token
         # deal with single/plural
         if transform.startswith("$TRANSFORM_AGREEMENT"):
-            return convert_using_plural(source_token, transform)
+            return source_token
         # raise exception if not find correct type
         raise Exception(f"Unknown action type {transform}")
     else:
