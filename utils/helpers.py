@@ -48,22 +48,23 @@ def get_target_sent_by_edits(source_tokens, edits):
             # del target_tokens[target_pos]
             # shift_idx -= 1
         elif start == end:
+            pass
             # word = label.replace("$APPEND_", "")
-            word = ""
-            target_tokens[target_pos: target_pos] = [word]
-            shift_idx += 1
+            # target_tokens[target_pos: target_pos] = [word]
+            # shift_idx += 1
         elif label.startswith("$TRANSFORM_"):
             word = apply_reverse_transformation(source_token, label)
             if word is None:
                 word = source_token
             target_tokens[target_pos] = word
         elif start == end - 1:
+            pass
             # word = label.replace("$REPLACE_", "")
-            word = source_token
-            target_tokens[target_pos] = word
+            # target_tokens[target_pos] = word
         elif label.startswith("$MERGE_"):
-            target_tokens[target_pos + 1: target_pos + 1] = [label]
-            shift_idx += 1
+            pass
+            # target_tokens[target_pos + 1: target_pos + 1] = [label]
+            # shift_idx += 1
 
     return replace_merge_transforms(target_tokens)
 
